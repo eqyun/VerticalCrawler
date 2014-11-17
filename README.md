@@ -1,0 +1,4 @@
+VerticalCrawler
+===============
+
+Just a crawler
