@@ -1,5 +1,7 @@
 package com.pada.scheduler;
 
+import com.pada.spider.strategy.wealthdigg.Bloomberg;
+import com.pada.spider.strategy.wealthdigg.MarketWatch;
 import com.pada.spider.tool.SpiderStarter;
 import com.pada.twitter.TwitterEvent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +19,24 @@ public class Scheduler {
 
     @Autowired
     private TwitterEvent twitterEvent;
+    @Autowired
+    private MarketWatch marketWatch;
+    @Autowired
+    private Bloomberg bloomberg;
 
 
     @Scheduled(fixedRate = 1000*60*60*24)
     public void updateSpider() throws Exception {
-        //System.out.println("I am update spider .........");
-        spiderStarter.startCrawler("piaohua",false);
+        marketWatch.init();
+        bloomberg.init();
+        System.out.println("I am update spider .........");
+        spiderStarter.startCrawler(marketWatch.getIdentity(),false);
+        spiderStarter.startCrawler(bloomberg.getIdentity(),false);
     }
 
     @Scheduled(fixedRate = 1000 * 60 *60)
     public void updateTwitter() throws  Exception{
         System.out.println("I am update twitter ...........");
-        //twitterEvent.pushTwitter2WP();
+        twitterEvent.pushTwitter2WP();
     }
 }

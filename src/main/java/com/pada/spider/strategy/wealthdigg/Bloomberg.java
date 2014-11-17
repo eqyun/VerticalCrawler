@@ -140,7 +140,7 @@ public class Bloomberg implements SpiderProcessor {
 
         SpiderPath[] spiderPaths = new SpiderPath[]{spiderPath1, spiderPath2};
 
-        spiderStrategy.setSpiderPaths(spiderPaths).setProxyIP("127.0.0.1").setProxyPort(8580);
+        spiderStrategy.setSpiderPaths(spiderPaths);
 
         spiderEvent.saveOrUpdate(spiderStrategy);
 

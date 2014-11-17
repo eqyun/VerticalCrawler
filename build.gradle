@@ -39,7 +39,6 @@ dependencies {
     compile ("org.twitter4j:twitter4j-stream:4.0.2")
 
     compile('com.google.http-client:google-http-client:1.19.0')
-    compile('net.sf.json-lib:json-lib:2.4')
     compile('com.google.http-client:google-http-client-jackson2:1.19.0')
 
     testCompile("junit:junit")

@@ -31,7 +31,7 @@ public class MongoDBIdConfiguration {
 
     @Bean
     public MongoClient mongo() throws UnknownHostException {
-        return new MongoClient("192.168.163.44",27017);
+        return new MongoClient("127.0.0.1",27017);
     }
 
 	@Bean
